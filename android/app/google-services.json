@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "161065600542",
+    "project_id": "mynewtest-f9deb",
+    "storage_bucket": "mynewtest-f9deb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161065600542:android:7a69d525a51052d95f900f",
+        "android_client_info": {
+          "package_name": "com.naser.ecommerceapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUb5pX-9pTUg7PipfBfMNdEqpE5m5f5Jo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

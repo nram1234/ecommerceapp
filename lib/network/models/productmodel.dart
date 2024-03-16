@@ -1,11 +1,12 @@
 class Productmodel {
-  int  id;
-  String  title;
-  double  price;
-  String  description;
-  String  category;
-  String image;
-  Rating  rating;
+  late int  id;
+  late String  title;
+  late  double  price;
+  late  String  description;
+  late String  category;
+  late String image;
+  late Rating  rating;
+  bool isfavorite=false;
 
 
   Productmodel({
@@ -15,34 +16,34 @@ class Productmodel {
     required this.description,
     required this.category,
     required this.image,
-    required this.rating,
+     required this.rating,
   });
 
-  factory Productmodel.fromMap(Map<String, dynamic> map) {
-    return Productmodel(
-      id: map['id']  ,
-      title: map['title']  ,
-      price: map['price'] ,
-      description: map['description']  ,
-      category: map['category'] ,
-      image: map['image']  ,
-      rating: map['rating']  ,
-    );
+    Productmodel.fromMap(Map<String, dynamic> map) {
+
+      id= map['id'] ;
+      title= map['title']  ;
+      price=double.parse( map['price'].toString())    ;
+      description= map['description'] ;
+      category=map['category'] ;
+      image=map['image']  ;
+   rating= Rating.fromMap(map['rating']) ;
+
   }
 }
 
 
 
 class Rating {
-  double? rate;
-  int? count;
+  late  double  rate;
+  late int count;
 
-  Rating({this.rate, this.count});
+  Rating({required this.rate,required this.count});
 
-  Rating.fromJson(Map<String, dynamic> json) {
-    rate = json['rate'];
-    count = json['count'];
+    Rating.fromMap(Map<String, dynamic> map) {
+
+      rate=double.parse( map['rate'].toString())  ;
+      count= map['count']  ;
+
   }
-
-
 }

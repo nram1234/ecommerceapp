@@ -53,7 +53,7 @@ class SignupScreen extends GetView<AuthController> {
                 }
                 },
                 title: 'register',
-                buttonColor:Colors.blue,
+                buttonColor:Colors.white,
                 width: size.width,
                 titleColor: Colors.blue,
                 height: 50,
@@ -82,9 +82,9 @@ class SignupScreen extends GetView<AuthController> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "haveaccount".tr,
+                    "have account",
                     style: const TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
@@ -98,9 +98,9 @@ class SignupScreen extends GetView<AuthController> {
                           curve: Curves.bounceOut);
                     },
                     child: Text(
-                      "login".tr,
+                      "login",
                       style:   TextStyle(
-                          color: Colors.blue,backgroundColor: Colors.white.withOpacity(.5),
+                          color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.bold),
                     ),

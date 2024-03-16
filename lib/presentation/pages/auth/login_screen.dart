@@ -15,32 +15,22 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(bottom: false,
-      child: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              "assets/images/loginback.png",
-            ),
-            fit: BoxFit.fill,
-          ),
-        ),
-        child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Stack(
-              children: [
-                GetBuilder<AuthController>(builder: (logic) {
-                  return PageView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    allowImplicitScrolling: false,
-                    controller: logic.pageController,
-                    scrollDirection: Axis.vertical,
-                    children: const [Login(), SignupScreen() ],
-                  );
-                }),
+      child: Scaffold(
+          backgroundColor: Colors.blue.withOpacity(.4),
+          body: Stack(
+            children: [
+              GetBuilder<AuthController>(builder: (logic) {
+                return PageView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  allowImplicitScrolling: false,
+                  controller: logic.pageController,
+                  scrollDirection: Axis.vertical,
+                  children: const [Login(), SignupScreen() ],
+                );
+              }),
 
-              ],
-            )),
-      ),
+            ],
+          )),
     );
   }
 }
@@ -63,7 +53,7 @@ class Login extends GetView<AuthController> {
               ),
               CustomTextfield(
                   textEditingController: logic.emailController,
-                  labelText: "email".tr,labelColor:Colors.white ,
+                  labelText: "email" ,labelColor:Colors.white ,
                   color: Colors.white,
                   radius: 20,
                   textInputType: TextInputType.emailAddress,
@@ -73,7 +63,7 @@ class Login extends GetView<AuthController> {
               ),
               CustomTextfield(
                   textEditingController: logic.passwordController,
-                  labelText: "password".tr,labelColor:Colors.white ,
+                  labelText: "password",labelColor:Colors.white ,
                   obscureText: true,
                   color: Colors.white,
                   radius: 20,
@@ -96,7 +86,7 @@ class Login extends GetView<AuthController> {
                       title: 'login',
                       buttonColor: Colors.blue,
                       width: size.width,
-                      titleColor: Colors.blue,
+                      titleColor: Colors.white,
                       height: 50,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -106,33 +96,7 @@ class Login extends GetView<AuthController> {
                       offset: const Offset(5, 6),
                       spreadRadius: 2,
                     ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextButton(
-                      onPressed: () {
-                        controller.pageController.animateToPage(3,
-                            duration: const Duration(milliseconds: 100),
-                            curve: Curves.bounceIn);
-                      },
-                      child: Container(
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(.5),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Text(
-                            "forgetPasswor".tr,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ))),
-                ],
-              ),
+
               const SizedBox(
                 height: 20,
               ),
@@ -149,13 +113,7 @@ class Login extends GetView<AuthController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "nothaveaccount".tr,
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
+
                   const SizedBox(
                     width: 10,
                   ),
@@ -166,10 +124,10 @@ class Login extends GetView<AuthController> {
                           curve: Curves.bounceIn);
                     },
                     child: Text(
-                      "register".tr,
+                      "register" ,
                       style: TextStyle(
-                          color: Colors.blue,
-                          backgroundColor: Colors.white.withOpacity(.5),
+                          color: Colors.white,
+                         // backgroundColor: Colors.white.withOpacity(.5),
                           fontSize: 24,
                           fontWeight: FontWeight.bold),
                     ),

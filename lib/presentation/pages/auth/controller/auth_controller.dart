@@ -21,6 +21,12 @@ class AuthController extends GetxController with GetTickerProviderStateMixin {
 
   String? lang;
 
+  @override
+  void onInit() {
+    super.onInit();
+    pageController = PageController(keepPage: true, initialPage: 0);
+  }
+
   registerUser(context) async {
     isRegister = true;
     update();
@@ -31,7 +37,9 @@ class AuthController extends GetxController with GetTickerProviderStateMixin {
             email: emailController.text,
             password: passwordController.text,
           )
-          .then((value) => Navigator.of(context).pop());
+          .then((value) {
+        Get.find<HomeController>().update(["profile"]);
+       Navigator.of(context).pop();});
     } catch (e) {
       Get.snackbar(
         'errorcreatingaccount'.tr,
@@ -51,7 +59,7 @@ class AuthController extends GetxController with GetTickerProviderStateMixin {
           .signInWithEmailAndPassword(
               email: emailController.text, password: passwordController.text)
           .then((value) {
-
+Get.find<HomeController>().update(["profile"]);
         Navigator.pop(context);
       });
     } catch (e) {
